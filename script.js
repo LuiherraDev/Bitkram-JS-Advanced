@@ -179,11 +179,34 @@ const inventory = [
     'Viaje a Cancún'
   ]
 */
-
+const inventory = [
+  {
+    name: 'Mobile phone',
+    price: 199
+  },
+  {
+    name: 'TV Samsung',
+    price: 459
+  },
+  {
+    name: 'Viaje a Cancún',
+    price: 600
+  },
+  {
+    name: 'Mascarilla',
+    price: 1
+  }
+];
+const mayorDe300 = inventory
+.filter(elemento => elemento.price >= 300)
+.map(elemento => elemento.name)
+console.log("El resultado al ejercicio 6 es: ",mayorDe300)
 
 // Reduce
 //  6.- Dado el siguiente array numeros [39, 2, 4, 25, 62], obten la multiplicación de todos los elementos del array
-
+let numeros = [39, 2, 4, 25, 62]
+let resultado6 = numeros.reduce((anterior, actual) => anterior*actual)
+console.log("El resultado del ejercicio 6 con reduce es:",resultado6)
 
 
 //  7.- Concatena todos los elementos del array con reduce para que devuelva una sola frase
@@ -203,7 +226,20 @@ const inventory = [
 
 // Resultado--> 'Me llamo XX y quiero sentir la fuerza con javascript'
 
-
+const sentenceElements = [
+  'Me',
+  'llamo',
+  "Luis",
+  'y',
+  'quiero',
+  'sentir',
+  'la',
+  'fuerza',
+  'con',
+  'javascript'
+];
+const resultado7 = sentenceElements.reduce((anterior, actual) => anterior + " " + actual)
+console.log("El resultado del ejercicio 7 es: ",resultado7)
 
 
 
@@ -237,3 +273,34 @@ const inventory = [
 // Resultado --> 60
 
  */
+
+const books = [
+  {
+    name: ' JS for dummies',
+    author: 'Emily A. Vander Veer',
+    price: 20,
+    category: 'code'
+  },
+  {
+    name: 'Don Quijote de la Mancha',
+    author: 'Cervantes',
+    price: 14,
+    category: 'novel'
+  },
+  {
+    name: 'Juego de tronos',
+    author: 'George R. Martin',
+    price: 32,
+    category: 'Fantasy'
+  },
+  {
+    name: 'javascript the good parts',
+    author: 'Douglas Crockford',
+    price: 40,
+    category: 'code'
+  }
+]
+const resultado8 = books
+.filter(elemento => elemento.category=="code")
+.reduce((anterior,actual) => anterior.price+actual.price)
+console.log("El resultado del ejercicio 8 es: ",resultado8)
