@@ -1,15 +1,13 @@
 // Map
 //  1.- Dado el array numbers cuyo valor sea [4, 5, 6, 7, 8, 9, 10], crea una función elevados que sea el resultado de elevar cada número a si mismo.
 const numbers = [4,5,6,7,8,9,10]
- function elevados(params) {
-    let salida = [] 
-    params.forEach(elementos => {
-      salida.push(elementos*elementos)
-    });
-    return salida
- }
-let solucionEjercicio1 = elevados(numbers)
-console.log("La solución al ejercicio1 es: ",solucionEjercicio1)
+
+function elevados(elementos){
+  return elementos * elementos
+}
+
+const numbersElevados = numbers.map(elevados)
+console.log("La solución al ejercicio 1 es: ",numbersElevados)
 
 
 //  2.- Dado el array foodList con valor ['Pizza', 'Ramen', 'Paella', 'Entrecot'], generar un segundo array que consiga generar de salida el resultado esperado.
@@ -21,7 +19,14 @@ console.log("La solución al ejercicio1 es: ",solucionEjercicio1)
 ] */
 const foodList = ['Pizza', 'Ramen', 'Paella', 'Entrecot']
 
+const lista = foodList.map((elemento, indice) => {
+  if (indice === 0) return `Como soy de Italia, amo comer ${elemento}`
+  if (indice === 1) return `Como soy de Japon, amo comer ${elemento}`
+  if (indice === 2) return `Como soy de Valencia, amo comer ${elemento}`
+  return `Aunque no como carne, el ${elemento} es sabroso`
+})
 
+console.log("La solución al ejercicio 2 es: ",lista)
 
 // 3.- Dado el array staff, crear un segundo array que forme frases como en el ejemplo accediendo a las propiedades del objeto proporcionado:
 /* const staff = [
@@ -56,6 +61,36 @@ const foodList = ['Pizza', 'Ramen', 'Paella', 'Entrecot']
     'Carlos es secretario y le gusta futbol y queso'
   ]
 */
+const staff = [
+  {
+    name: 'Pepe',
+    role: 'The Boss',
+    hobbies: ['leer', 'ver pelis']
+  },
+  {
+    name: 'Ana',
+    role: 'becaria',
+    hobbies: ['nadar', 'bailar']
+  },
+  {
+    name: 'Luis',
+    role: 'programador',
+    hobbies: ['dormir', 'comprar']
+  },
+  {
+    name: 'Carlos',
+    role: 'secretario',
+    hobbies: ['futbol', 'queso']
+  }
+];
+
+function parafrasear(elemento){
+  return `${elemento.name} es ${elemento.role} y le gusta ${elemento.hobbies[0]} y ${elemento.hobbies[1]}`
+}
+const mensaje = staff.map(parafrasear)
+console.log("La solución al ejercicio 3 es: ",mensaje)
+
+
 
 // Filter
 //  4.- Crea un segundo array result4 a partir del array numbers2 que devuelva solo los impares
