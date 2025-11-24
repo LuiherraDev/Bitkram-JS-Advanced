@@ -95,6 +95,16 @@ console.log("La solución al ejercicio 3 es: ",mensaje)
 // Filter
 //  4.- Crea un segundo array result4 a partir del array numbers2 que devuelva solo los impares
 // const numbers2 = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
+const numbers2 = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
+
+// function soloPares (elemento){
+//   if (elemento % 2 == 0){
+//     return elemento
+//   }
+// }
+// const numerosPares = numbers2.filter(soloPares)
+const numerosPares = numbers2.filter((numeros)=>numeros%2==0)
+console.log("La solución al ejercicio 4 es: ",numerosPares)
 
 
 //  5.- Dado el array foodList2, genera un segundo array result5 que filtre los platos veganos y saque una sentencia como la del ejemplo
@@ -117,8 +127,28 @@ const foodList2 =[
   name: 'Entrecot',
   isVeggie: false
 }]; */
+const foodList2 =[
+{
+  name: 'Tempeh',
+  isVeggie: true
+},
+{
+  name: 'Cheesbacon burguer',
+  isVeggie: false
+},
+{
+  name: 'Tofu burguer',
+  isVeggie: true
+},
+{
+  name: 'Entrecot',
+  isVeggie: false
+}]; 
 
-
+let result5 = foodList2.filter(elemento => elemento.isVeggie)
+// Al filtrar queda un array formado por dos objetos. Se hace un map para hacer un array de dos strings
+result5 = result5.map(elemento => `Que rico ${elemento.name} me voy a comer!`)
+console.log("La solución al ejercicio 5 es: ",result5)
 
 
 
